@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Immunopath billing</title>
+        <style>
+        td {
+          width: 130px;
+        }
+        </style>
+    </head>
+
+    <body>
+      <table>
+        <form name='8_color' method='post' action='' >
+          <tr><td>
+            <input type="checkbox" name="tube" value="B1" />
+            B1<br>
+            <input type="checkbox" name="tube" value="B2" />
+            B2<br>
+            <input type="checkbox" name="tube" value="T1" />
+            T1<br>
+            <input type="checkbox" name="tube" value="T2" />
+            T2<br>
+            <input type="checkbox" name="tube" value="PL1" />
+            PL1<br>
+            <input type="checkbox" name="tube" value="PL2" />
+            PL2<br>
+            <input type="checkbox" name="tube" value="MRD" />
+            MRD<br>
+            <input type="checkbox" name="tube" value="Cytoplasmics" />
+            Cytoplasmics<br>
+            <input type="checkbox" name="tube" value="ALL" />
+            ALL Limited<br>
+            <input type="submit" value="Submit">
+          </td>
+
+          <td>
+            <input type="checkbox" name="tube" value="ALOT" />
+            ALOT<br>
+            <input type="checkbox" name="tube" value="AML1" />
+            AML1<br>
+            <input type="checkbox" name="tube" value="AML2" />
+            AML2<br>
+            <input type="checkbox" name="tube" value="AML3" />
+            AML3<br>
+            <input type="checkbox" name="tube" value="AML4" />
+            AML4<br>
+            <input type="checkbox" name="tube" value="AML5" />
+            AML5<br>
+            <input type="checkbox" name="tube" value="AML6" />
+            AML6<br>
+            <input type="checkbox" name="tube" value="AML7" />
+            AML7<br><br>
+            <input type="submit" value="Submit"></li>
+          </td>
+
+          <td>
+            <input type="checkbox" name="tube" value="ALOT" />
+            ALOT<br>
+            <input type="checkbox" name="tube" value="ALL1" />
+            ALL1<br>
+            <input type="checkbox" name="tube" value="ALL2" />
+            ALL2<br>
+            <input type="checkbox" name="tube" value="ALL3" />
+            ALL3<br>
+            <input type="checkbox" name="tube" value="ALL4" />
+            ALL4<br>
+            <input type="checkbox" name="tube" value="ALL5" />
+            ALL5<br>
+            <input type="checkbox" name="tube" value="ALL6" />
+            ALL6<br><br><br>
+            <input type="submit" value="Submit"></li>
+          </td>
+
+          <td>
+            <input type="checkbox" name="tube" value="Hairy Cell 1" />
+            Hairy Cell 1<br>
+            <input type="checkbox" name="tube" value="Hairy Cell 2" />
+            Hairy Cell 2<br>
+            <input type="checkbox" name="tube" value="IgG" />
+            IgG<br>
+            <input type="checkbox" name="tube" value="IgM" />
+            IgM<br>
+            <input type="checkbox" name="tube" value="IgA" />
+            IgA<br>
+            <input type="checkbox" name="tube" value="IgD" />
+            IgD<br>
+            <input type="checkbox" name="tube" value="CD52" />
+            CD52<br><br><br>
+            <input type="submit" value="Submit"></td>
+          </tr>
+        </table>
+        </form>
+      <p>
+        The following analytes were tested ({{ all_tubes }}): {{ analyte_str }}. (Total {{ analyte_count }})
+      </p>
+    </body>
+
+</html>
