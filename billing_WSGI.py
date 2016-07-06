@@ -7,8 +7,7 @@ def application(environ, start_response):
 
     # This creates your environment and loads a specific template
     env = jinja2.Environment(loader=templateLoader)
-
-
+    template = env.get_template('bill.html')
 
     tube_list = []
     if environ['REQUEST_METHOD'] == 'POST':
@@ -73,7 +72,6 @@ def application(environ, start_response):
 
     analyte_order = ['CD1a', 'CD2', 'cCD3', 'sCD3', 'CD4', 'CD5', 'CD7', 'CD8', 'CD9', 'CD10', 'CD11b', 'CD11c', 'CD13', 'CD14', 'CD15', 'CD16', 'CD19', 'CD20', 'CD21', 'CD22', 'CD23', 'CD24', 'CD25', 'CD28', 'CD30', 'CD33', 'CD34', 'CD35', 'CD36', 'CD38', 'CD41', 'CD42a+CD61', 'CD42b', 'CD44', 'CD45', 'CD52', 'CD56', 'CD57', 'CD58', 'CD61', 'CD64', 'CD65', 'CD66c', 'CD71', 'cCD79a', 'sCD79a', 'CD81', 'CD86', 'CD99', 'CD103', 'CD105', 'CD117', 'CD123', 'CD138', 'CD203c', 'CD235a', 'CD300e', 'CD15+CD65', 'EPOR', 'FMC7', 'HLA-DR', 'IgA', 'IgD', 'IgG', 'cIgM', 'sIgM','sIgM+CD117', 'cKappa', 'sKappa', 'cLambda', 'sLambda', 'cMPO', 'NG2', 'TCRa/b', 'TCRg/d', 'cTdT']
 
-
         #create a loop to put analytes in order
 
     for analyte in analyte_order:
@@ -91,9 +89,15 @@ def application(environ, start_response):
     start_response("200 OK", [("Content-Type", "text/html")])
 
     if len(all_tubes) > 0:
-        template = env.get_template('bill.html')
-        template = template.render(all_tubes = all_tubes, analyte_str = analyte_str, analyte_count = analyte_count)
+        result = "The following analytes were tested ({0}): {1}. (Total {2})".format(all_tubes, analyte_str, analyte_count)
+        template = template.render(result = result)
         yield(template.encode("utf8"))
     else:
-        index_temp = env.get_template('index.html')
-        yield(index_temp.render().encode('utf8'))
+        result = ""
+        template = template.render(result = result)
+        yield(template.encode("utf8"))
+
+if __name__ == '__main__':
+    from wsgiref.simple_server import make_server
+    srv = make_server('localhost', 8080, application)
+    srv.serve_forever()
