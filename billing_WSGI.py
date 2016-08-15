@@ -1,5 +1,5 @@
 import jinja2
-import cgi
+from cgi import parse_qs, escape
 from reagent_list import analyte_order, tube_dict
 
 def application(environ, start_response):
@@ -11,15 +11,9 @@ def application(environ, start_response):
     template = env.get_template('bill.html')
 
     tube_list = []
-    if environ['REQUEST_METHOD'] == 'POST':
-        post_env = environ.copy()
-        post_env['QUERY_STRING'] = ''
-        post = cgi.FieldStorage(
-            fp=environ['wsgi.input'],
-            environ=post_env,
-            keep_blank_values=True
-        )
-        tube_list = post.getlist('tube')
+    if environ['REQUEST_METHOD'] == 'GET':
+        QS = parse_qs(environ['QUERY_STRING'])
+        tube_list = QS.get('tube', [])
 
     analyte_list = []
     analyte_set = []
@@ -52,7 +46,7 @@ def application(environ, start_response):
 
     start_response("200 OK", [("Content-Type", "text/html")])
 
-    if len(all_tubes) > 0:
+    if tube_list:
         result = "The following analytes were tested ({0}): {1}. (Total {2})".format(all_tubes, analyte_str, analyte_count)
         template = template.render(result = result)
         yield(template.encode("utf8"))
@@ -60,8 +54,3 @@ def application(environ, start_response):
         result = ""
         template = template.render(result = result)
         yield(template.encode("utf8"))
-
-if __name__ == '__main__':
-    from wsgiref.simple_server import make_server
-    srv = make_server('localhost', 8080, application)
-    srv.serve_forever()
