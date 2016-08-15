@@ -1,4 +1,4 @@
-analyte_order = ['CD1a', 'CD2', 'cCD3', 'sCD3', 'CD4', 'CD5', 'CD7', 'CD8', 'CD9', 'CD10', 'CD11b', 'CD11c', 'CD13', 'CD14', 'CD15', 'CD16', 'CD19', 'CD20', 'CD21', 'CD22', 'CD23', 'CD24', 'CD25', 'CD28', 'CD30', 'CD33', 'CD34', 'CD35', 'CD36', 'CD38', 'CD41', 'CD42a+CD61', 'CD42b', 'CD44', 'CD45', 'CD52', 'CD56', 'CD57', 'CD58', 'CD61', 'CD64', 'CD65', 'CD66c', 'CD71', 'cCD79a', 'sCD79a', 'CD81', 'CD86', 'CD99', 'CD103', 'CD105', 'CD117', 'CD123', 'CD138', 'CD203c', 'CD235a', 'CD300e', 'CD15+CD65', 'EPOR', 'FMC7', 'HLA-DR', 'IgA', 'IgD', 'IgG', 'cIgM', 'sIgM','sIgM+CD117', 'cKappa', 'sKappa', 'cLambda', 'sLambda', 'cMPO', 'NG2', 'TCRa/b', 'TCRg/d', 'cTdT']
+analyte_order = ['CD1a', 'CD2', 'cCD3', 'sCD3', 'CD4', 'CD5', 'CD7', 'CD8', 'CD9', 'CD10', 'CD11b', 'CD11c', 'CD13', 'CD14', 'CD15', 'CD16', 'CD19', 'CD20', 'CD21', 'CD22', 'CD23', 'CD24', 'CD25', 'CD28', 'CD30', 'CD33', 'CD34', 'CD35', 'CD36', 'CD38', 'CD41', 'CD42a+CD61', 'CD42b', 'CD44', 'CD45', 'CD45RA', 'CD52', 'CD56', 'CD57', 'CD58', 'CD61', 'CD64', 'CD65', 'CD66c', 'CD71', 'cCD79a', 'sCD79a', 'CD81', 'CD86', 'CD99', 'CD103', 'CD105', 'CD117', 'CD123', 'CD138', 'CD203c', 'CD235a', 'CD300e', 'CD15+CD65', 'EPOR', 'FMC7', 'HLA-DR', 'IgA', 'IgD', 'IgG', 'cIgM', 'sIgM','sIgM+CD117', 'cKappa', 'sKappa', 'cLambda', 'sLambda', 'cMPO', 'NG2', 'TCRa/b', 'TCRg/d', 'cTCRb', 'cTdT']
 
 tube_dict = {
     'B1':['sKappa', 'sLambda', 'CD5', 'CD23', 'CD10', 'CD20', 'CD19', 'CD45'],
@@ -18,12 +18,16 @@ tube_dict = {
     'AML5':['CD45', 'HLA-DR', 'CD117', 'CD34', 'CD15', 'NG2', 'CD22', 'CD38'],
     'AML6':['CD45', 'HLA-DR', 'CD117', 'CD34', 'CD42a+CD61', 'CD203c', 'CD123', 'CD4'],
     'AML7':['CD45', 'HLA-DR', 'CD117', 'CD34', 'CD41', 'CD25', 'CD42b', 'CD9'],
-    'ALL1':['CD45', 'CD19', 'CD34', 'CD20', 'CD58', 'CD66c', 'CD10', 'CD38'],
-    'ALL2':['CD45', 'CD19', 'CD34', 'sKappa', 'cIgM', 'CD33', 'sIgM+CD117', 'sLambda'],
-    'ALL3':['CD45', 'CD19', 'CD34', 'CD9', 'cTdT', 'CD13', 'CD22', 'CD24'],
-    'ALL4':['CD45', 'CD19', 'CD34', 'CD21', 'CD15+CD65', 'NG2', 'CD123', 'CD81'],
-    'ALL5':['CD45', 'CD19', 'CD34', 'CD44', 'cTdT', 'CD99', 'EPOR', 'CD86'],
-    'ALL6':['CD45', 'CD19', 'CD34', 'CD20', 'sCD3', 'sCD79a', 'CD22', 'CD10'],
+    'BALL1':['CD45', 'CD19', 'CD34', 'CD20', 'CD58', 'CD66c', 'CD10', 'CD38'],
+    'BALL2':['CD45', 'CD19', 'CD34', 'sKappa', 'cIgM', 'CD33', 'sIgM+CD117', 'sLambda'],
+    'BALL3':['CD45', 'CD19', 'CD34', 'CD9', 'cTdT', 'CD13', 'CD22', 'CD24'],
+    'BALL4':['CD45', 'CD19', 'CD34', 'CD21', 'CD15+CD65', 'NG2', 'CD123', 'CD81'],
+    'BALL5':['CD45', 'CD19', 'CD34', 'CD44', 'cTdT', 'CD99', 'CD86'],
+    'BALL6':['CD45', 'CD19', 'CD34', 'CD20', 'sCD3', 'sCD79a', 'CD22', 'CD10'],
+    'TALL1':['CD45', 'sCD3', 'cCD3', 'cTdT', 'CD99', 'CD5', 'CD10', 'CD1a'],
+    'TALL2':['CD45', 'sCD3', 'cCD3', 'CD2', 'CD117', 'CD4', 'CD8', 'CD7'],
+    'TALL3':['CD45', 'sCD3', 'cCD3', 'TCRg/d', 'TCRa/b', 'CD33', 'CD56', 'cTCRb'],
+    'TALL4':['CD45', 'sCD3', 'cCD3', 'CD44', 'CD13', 'HLA-DR', 'CD45RA', 'CD123'],
     'Hairy Cell 1':['CD45', 'CD19', 'CD103', 'CD11c', 'CD5', 'sCD3', 'CD22', 'CD25'],
     'Hairy Cell 2':['CD45', 'CD19', 'CD103', 'sKappa', 'CD5', 'CD3', 'CD22', 'sLambda'],
     'IgG':['CD45', 'CD19', 'IgG'],
